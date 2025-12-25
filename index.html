@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Standard meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get actionable insights from Airbnb and Booking.com with country-specific visibility. See exactly where you stand and how to improve.">
+  <meta name="keywords" content="property manager, market insights, Airbnb, Booking.com">
+
+  <!-- Google Fonts for modern typography (Inter to match clean design) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ClickFunnels-style stylesheets -->
+  <link rel="stylesheet" href="https://cdn.clickfunnels.com/assets/global.css">
+  <link rel="stylesheet" href="https://cdn.clickfunnels.com/assets/funnel.css">
+
+  <!-- Custom inline styles translated from Tailwind classes to match images -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #111827; /* gray-900 */
+      background-color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .cf-root {
+      position: relative;
+    }
+    .cf-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #F3F4F6; /* gray-100 */
+      z-index: 50;
+    }
+    .cf-header-container {
+      max-width: 1280px; /* max-w-7xl */
+      margin: 0 auto;
+      padding: 1rem 1.5rem; /* py-4 px-6 */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cf-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cf-logo-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: #FF5A5F;
+      border-radius: 0.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #FFFFFF;
+      font-weight: bold;
+    }
+    .cf-logo-text {
+      font-size: 1.5rem; /* text-2xl */
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+    .cf-nav-button {
+      font-size: 0.875rem; /* text-sm */
+      font-weight: 500;
+      color: #374151; /* gray-700 */
+      background-color: transparent;
+      transition: background-color 0.2s;
+      padding: 0.5rem 1rem;
+    }
+    .cf-nav-button:hover {
+      background-color: #F3F4F6; /* gray-50 */
+      border-radius: 9999px;
+    }
+    .cf-hero {
+      padding-top: 8rem; /* pt-32 */
+      padding-bottom: 5rem; /* pb-20 */
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      text-align: center;
+    }
+    .cf-hero-content {
+      max-width: 1024px; /* max-w-4xl */
+      margin: 0 auto;
+    }
+    .cf-hero-title {
+      font-size: 3.75rem; /* text-6xl */
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #111827;
+      margin-bottom: 1.5rem;
+    }
+    .cf-hero-title span {
+      color: #FF5A5F;
+    }
+    .cf-hero-description {
+      font-size: 1.25rem; /* text-xl */
+      color: #4B5563; /* gray-600 */
+      margin-bottom: 2.5rem;
+      max-width: 512px; /* max-w-2xl */
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .cf-button-primary {
+      padding: 1rem 2rem; /* py-4 px-8 */
+      background-color: #FF5A5F;
+      color: #FFFFFF;
+      border-radius: 9999px;
+      font-size: 1.125rem; /* text-lg */
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .cf-button-primary:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: scale(1.05);
+    }
+    .cf-features {
+      padding: 5rem 1.5rem; /* py-20 px-6 */
+      background-color: #F9FAFB; /* gray-50 */
+    }
+    .cf-features-grid {
+      max-width: 1152px; /* max-w-6xl */
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .cf-features-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .cf-feature-item {
+      background-color: #FFFFFF;
+      padding: 2rem; /* p-8 */
+      border-radius: 1rem; /* rounded-2xl */
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      border: 1px solid #F3F4F6; /* gray-100 */
+    }
+    .cf-feature-icon {
+      width: 3rem;
+      height: 3rem;
+      background-color: rgba(255, 90, 95, 0.1); /* #FF5A5F/10 */
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .cf-feature-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #FF5A5F;
+    }
+    .cf-feature-title {
+      font-size: 1.25rem; /* text-xl */
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
+    .cf-feature-description {
+      color: #4B5563; /* gray-600 */
+      line-height: 1.75;
+    }
+    .cf-pricing {
+      padding: 5rem 1.5rem; /* py-20 px-6 */
+    }
+    .cf-pricing-content {
+      max-width: 1280px; /* max-w-7xl */
+      margin: 0 auto;
+    }
+    .cf-section-title {
+      text-align: center;
+      font-size: 3rem; /* text-5xl */
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+    .cf-section-subtitle {
+      text-align: center;
+      font-size: 1.25rem; /* text-xl */
+      color: #4B5563; /* gray-600 */
+      margin-bottom: 4rem; /* mb-16 */
+    }
+    .cf-pricing-grid {
+      max-width: 1152px; /* max-w-6xl */
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .cf-pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .cf-pricing-item {
+      background-color: #FFFFFF;
+      border-radius: 1.5rem; /* rounded-3xl */
+      padding: 2rem; /* p-8 */
+      transition: all 0.2s;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+    .cf-pricing-item-starter, .cf-pricing-item-pro {
+      border: 1px solid #E5E7EB; /* subtle gray border */
+    }
+    .cf-pricing-item-starter:hover, .cf-pricing-item-pro:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .cf-pricing-item-business {
+      border: 2px solid #FF5A5F;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .cf-pricing-item-business:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+    .cf-most-popular {
+      display: inline-block;
+      padding: 0.25rem 1rem; /* py-1 px-4 */
+      background-color: #FF5A5F;
+      color: #FFFFFF;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .cf-plan-title {
+      font-size: 1.5rem; /* text-2xl */
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+    .cf-plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .cf-plan-price-amount {
+      font-size: 3rem; /* text-5xl */
+      font-weight: 700;
+      color: #111827;
+    }
+    .cf-plan-price-period {
+      color: #4B5563; /* gray-600 */
+    }
+    .cf-plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0; /* mb-8 */
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* space-y-4 */
+    }
+    .cf-plan-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .cf-plan-feature svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: #00A699;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+    .cf-plan-feature-text {
+      color: #374151; /* gray-700 */
+    }
+    .cf-additional-info {
+      margin-bottom: 2rem; /* mb-8 */
+      padding: 1rem; /* p-4 */
+      background-color: #F9FAFB; /* gray-50 */
+      border-radius: 0.75rem;
+    }
+    .cf-additional-item {
+      font-size: 0.875rem; /* text-sm */
+      color: #4B5563; /* gray-600 */
+    }
+    .cf-additional-item strong {
+      font-weight: 600;
+      color: #111827; /* gray-900 */
+    }
+    .cf-button-secondary {
+      width: 100%;
+      padding: 1rem 0; /* py-4 */
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-align: center;
+      display: block;
+    }
+    .cf-button-secondary-starter {
+      background-color: #111827; /* gray-900 */
+      color: #FFFFFF;
+    }
+    .cf-button-secondary-starter:hover {
+      background-color: #1F2937; /* gray-800 */
+    }
+    .cf-button-secondary-business {
+      background-color: #FF5A5F;
+      color: #FFFFFF;
+    }
+    .cf-button-secondary-business:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    .cf-button-secondary-pro {
+      background-color: #111827; /* gray-900 */
+      color: #FFFFFF;
+    }
+    .cf-button-secondary-pro:hover {
+      background-color: #1F2937; /* gray-800 */
+    }
+    .cf-footer {
+      padding: 3rem 1.5rem; /* py-12 px-6 */
+      border-top: 1px solid #E5E7EB; /* gray-200 */
+      text-align: center;
+      color: #4B5563; /* gray-600 */
+    }
+    .cf-footer-content {
+      max-width: 1280px; /* max-w-7xl */
+      margin: 0 auto;
+    }
+    .cf-footer a {
+      text-decoration: underline;
+      color: #4B5563;
+      transition: color 0.2s;
+    }
+    .cf-footer a:hover {
+      color: #111827;
+    }
+  </style>
+
+  <!-- ClickFunnels-style scripts -->
+  <script src="https://cdn.clickfunnels.com/assets/global.js"></script>
+  <script src="https://cdn.clickfunnels.com/assets/funnel.js"></script>
+  <script src="https://cdn.clickfunnels.com/assets/tracking.js"></script>
+  <script src="https://cdn.clickfunnels.com/assets/analytics.js"></script>
+
+  <title>AirbMax - Property Manager Market Insights</title>
+</head>
+<body>
+  <div id="root" class="cf-root">
+    
+    <!-- Header -->
+    <header class="cf-header">
+      <div class="cf-header-container">
+        <div class="cf-logo">
+          <div class="cf-logo-icon">↑</div>
+          <span class="cf-logo-text">AirbMax</span>
+        </div>
+        <a href="#" class="cf-nav-button">Sign in</a>
+      </div>
+    </header>
+    
+    <!-- Hero section -->
+    <section class="cf-hero section">
+      <div class="cf-hero-content container">
+        <h1 class="cf-hero-title">Know your market.<br><span>Dominate your listings.</span></h1>
+        <p class="cf-hero-description">Get actionable insights from Airbnb and Booking.com with country-specific visibility. See exactly where you stand and how to improve.</p>
+        <a href="#" class="cf-button-primary">Secure early access</a>
+      </div>
+    </section>
+    
+    <!-- Features section -->
+    <section class="cf-features section">
+      <div class="cf-features-grid container">
+        <div class="cf-feature-item">
+          <div class="cf-feature-icon">
+            <!-- Search SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+          </div>
+          <h3 class="cf-feature-title">Country-Specific Scanning</h3>
+          <p class="cf-feature-description">See your listings from your target markets' perspective with VPN-powered country scanning.</p>
+        </div>
+        <div class="cf-feature-item">
+          <div class="cf-feature-icon">
+            <!-- Target SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3 class="cf-feature-title">Market Positioning</h3>
+          <p class="cf-feature-description">Know exactly where you rank, what page you're on, and how you compare to competitors.</p>
+        </div>
+        <div class="cf-feature-item">
+          <div class="cf-feature-icon">
+            <!-- BarChart3 SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M12 9v9m-3-9v9m9-9v9"></path></svg>
+          </div>
+          <h3 class="cf-feature-title">AI-Powered Insights</h3>
+          <p class="cf-feature-description">Get personalized recommendations on pricing, SEO, and strategy to outperform the market.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Pricing section -->
+    <section class="cf-pricing section" id="pricing">
+      <div class="cf-pricing-content container">
+        <h2 class="cf-section-title">Simple, transparent pricing</h2>
+        <p class="cf-section-subtitle">Choose the plan that fits your portfolio</p>
+        <div class="cf-pricing-grid container">
+          <!-- Starter Plan -->
+          <div class="cf-pricing-item cf-pricing-item-starter">
+            <h3 class="cf-plan-title">Starter</h3>
+            <div class="cf-plan-price">
+              <span class="cf-plan-price-amount">$199</span>
+              <span class="cf-plan-price-period">/month</span>
+            </div>
+            <ul class="cf-plan-features">
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">2 countries to scan from</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">5 property listings</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Weekly scans</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Market positioning insights</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Price optimization</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">SEO recommendations</span>
+              </li>
+            </ul>
+            <div class="cf-additional-info">
+              <p class="cf-additional-item"><strong>Additional country:</strong> $50 per week</p>
+              <p class="cf-additional-item"><strong>Additional listing:</strong> $5 each</p>
+            </div>
+            <a href="#" class="cf-button-secondary cf-button-secondary-starter">Secure early access</a>
+          </div>
+          
+          <!-- Business Plan -->
+          <div class="cf-pricing-item cf-pricing-item-business">
+            <span class="cf-most-popular">Most Popular</span>
+            <h3 class="cf-plan-title">Business</h3>
+            <div class="cf-plan-price">
+              <span class="cf-plan-price-amount">$399</span>
+              <span class="cf-plan-price-period">/month</span>
+            </div>
+            <ul class="cf-plan-features">
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">4 countries to scan from</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">10 property listings</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Weekly scans</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Advanced market insights</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Competitor analysis</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Dynamic pricing suggestions</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Priority support</span>
+              </li>
+            </ul>
+            <div class="cf-additional-info">
+              <p class="cf-additional-item"><strong>Additional country:</strong> $35 per week</p>
+              <p class="cf-additional-item"><strong>Additional listing:</strong> $2.5 each</p>
+            </div>
+            <a href="#" class="cf-button-secondary cf-button-secondary-business">Secure early access</a>
+          </div>
+          
+          <!-- Pro Plan -->
+          <div class="cf-pricing-item cf-pricing-item-pro">
+            <h3 class="cf-plan-title">Pro</h3>
+            <div class="cf-plan-price">
+              <span class="cf-plan-price-amount">$799</span>
+              <span class="cf-plan-price-period">/month</span>
+            </div>
+            <ul class="cf-plan-features">
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">6 countries to scan from</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">10 property listings</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Weekly scans</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Premium market intelligence</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Deep competitor insights</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">AI-powered recommendations</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Custom action plans</span>
+              </li>
+              <li class="cf-plan-feature">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="cf-plan-feature-text">Dedicated support</span>
+              </li>
+            </ul>
+            <div class="cf-additional-info">
+              <p class="cf-additional-item"><strong>Additional country:</strong> $25 per week</p>
+              <p class="cf-additional-item"><strong>Additional listing:</strong> $2 each</p>
+            </div>
+            <a href="#" class="cf-button-secondary cf-button-secondary-pro">Secure early access</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="cf-footer">
+      <div class="cf-footer-content">
+        <p>© 2025 AirbMax. Empowering property managers with data-driven insights. Powered by <a href="https://fernanz.com" target="_blank" rel="noopener noreferrer">Fernanz</a></p>
+      </div>
+    </footer>
+    
+  </div>
+</body>
+</html>
